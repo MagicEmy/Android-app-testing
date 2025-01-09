@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NavigationApp</string>
+    <string name="location_permission_denied"><![CDATA[<string name=\"location_permission_denied\">Location permission is required for this feature</string>]]></string>
 </resources>

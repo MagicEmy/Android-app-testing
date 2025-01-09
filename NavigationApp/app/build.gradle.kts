@@ -5,11 +5,12 @@ plugins {
 
 android {
     namespace = "com.emanuela.navigationapp"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.emanuela.navigationapp"
         minSdk = 26
+        //noinspection OldTargetApi
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -36,9 +37,14 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    packaging {
+        jniLibs.pickFirsts.add("lib/**/libc++_shared.so")
+    }
 }
+val version = "1.21.0"
 dependencies {
 
+    implementation(libs.navigation.online)
     implementation(libs.provider.default)
     implementation(libs.provider.map.matched)
     implementation(libs.provider.simulation)
@@ -47,7 +53,6 @@ dependencies {
     implementation(libs.navigation.online)
     implementation(libs.ui)
     implementation(libs.route.planner.online)
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
